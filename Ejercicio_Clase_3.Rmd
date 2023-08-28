@@ -1,0 +1,22 @@
+# R markdown
+
+```{r}
+library(tidyr)
+library(dbplyr)
+````
+
+Bajamos datos de la siguiente [url]
+(https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv)
+
+- Código
+```{r}
+url <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv"
+Plants <- read.csv(url)
+```
+
+- Filtros
+```{r}
+Plantas_Extintas_Latam_Chile <- Plants |>
+  filter(red_list_category == 'Extinct' ,continent == 'South America', country == 'Chile')
+print(Plantas_Extintas_Latam_Chile)
+```
